@@ -23,12 +23,14 @@ private slots:
     int converting_integer(int &integer, QString &binary);
     int converting_fractional(double &fractional, QString &binary);
 
+    void clear_all();
+
 private:
     Ui::MainWindow *ui;
     const double epsilon = 1e-3;
     double value, fractional;
-    int integer;
-    QString binaryInt, binaryFr, binaryTotal, str;
+    int integer, places, bias = 1023, exponent, counter = 0;
+    QString binarySign = "0", binaryInt, binaryFr, binaryTotal, str, binaryExp, binaryMantisa;
     bool correct = true;
 };
 #endif // MAINWINDOW_H
