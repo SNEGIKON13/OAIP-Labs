@@ -34,7 +34,7 @@ void MainWindow::on_pushButton_clicked()
         return;
     }
     else if ((m == 5 && n > 0) || (m == 4 && n > 1) || m > 5 || (m == 3 && n > 13)
-               || (m == 2 && n > 10000)) {
+               || n > 10000) {
         QMessageBox::critical(nullptr, "Ошибка", "Результат выполнения слишком велик или слишком "
 "долог и не может быть отображен...");
         return;
@@ -56,4 +56,3 @@ int MainWindow::akkerman(int m, int n)
         return akkerman(m - 1, akkerman(m, n - 1));
     }
 }
-
