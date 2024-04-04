@@ -33,18 +33,27 @@ void MainWindow::on_pushButton_clicked()
         QMessageBox::critical(nullptr, "Ошибка", "Неправильный ввод числа n!");
         return;
     }
+    else if ((m == 5 && n > 0) || (m == 4 && n > 1) || m > 5 || (m == 3 && n > 13)
+               || (m == 2 && n > 10000)) {
+        QMessageBox::critical(nullptr, "Ошибка", "Результат выполнения слишком велик или слишком "
+"долог и не может быть отображен...");
+        return;
+    }
+    answer = akkerman(m, n);
+    strAnswer = QString::number(answer);
+    ui->output->setText(strAnswer);
+}
+
+int MainWindow::akkerman(int m, int n)
+{
     if (m == 0) {
-        answer = n + 1;
+        return n + 1;
     }
     else if (m > 0 && n == 0) {
-
+        return akkerman(m - 1, 1);
     }
     else if (m > 0 && n > 0) {
-
-    }
-    else {
-        QMessageBox::critical(nullptr, "Ошибка", "Неправильный ввод!"
-                                                 " Числа должны быть неотрицательными и целыми");
+        return akkerman(m - 1, akkerman(m, n - 1));
     }
 }
 

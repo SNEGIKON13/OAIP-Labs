@@ -21,11 +21,12 @@ public:
 
 private slots:
     void on_pushButton_clicked();
+    int akkerman(int m, int n);
 
 private:
     Ui::MainWindow *ui;
-    long long m,n,answer;
-    QString strM, strN;
+    long long m, n, answer;
+    QString strM, strN, strAnswer;
     bool correctM, correctN;
 };
 #endif // MAINWINDOW_H
